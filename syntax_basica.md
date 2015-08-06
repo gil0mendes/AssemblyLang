@@ -12,13 +12,17 @@ A secção **data** é usada para declarar os dados inicializados ou constantes.
 
 A syntax para declarar esta secção é:
 
-```section .data```
+```asm
+section .data
+```
 
 ## A secção *bss*
 
 A secção **bss** é usada para declarar variaveis. A syntax para a declaração da secção bss é:
 
-```section .bss```
+```asm
+section .bss
+```
 
 ## A secção *text*
 
@@ -26,8 +30,12 @@ A secção **text** é usada para o manter o código. Esta secção deverá come
 
 A syntax para declarar a secção text é:
 
-```
+```asm
 section .text
     global _start
 _start:
 ```
+
+## Comentários
+
+Em assembly os comentários começam com um um ponto e virgula (;). Este pode conter qualquer carater 
