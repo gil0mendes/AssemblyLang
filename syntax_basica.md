@@ -92,6 +92,40 @@ and MARKS, 10   ; Adiciona 10 a variável MARKS
 mov al, 10      ; Transfere o valor 10 para o registo al
 ```
 
+## Hello World
+Como não poderia deixar de ser, tinha que apresentar o famoso *Hello World*. O código assembly em baixo mostra a *string* 'Hello World' no ecrã:
+
+```asm
+section .text
+    global _start       ; informa o linker (ld) qual é o ponto
+                        ; de entrada
+
+_start:                 ; este é o ponto de entrada
+    mov edx, len        ; comprimento da mensagem
+    mov ecx, msg        ; mensagem a escrever
+    mov ebx, 1          ; instrução para o ficheiro (stdout)
+    mov eax, 4          ; numero da system call (sys_write)
+    int 0x80            ; chama o kernel
+
+    mov eax,1           ; numero da system call (sys_exit
+    int 0x80            ; chama o kernel
+
+section .data
+msg db 'Hello, world!', 0xa     ; esta é a nossa stirng
+len equ $ - msg                 ; comprimento da string
+```
+
+Quando o código a baixo é compilado e executado, ele produz o seguinte resultado:
+
+```text
+Hello, world!
+```
+
+## Compilar e Executar
+
+Para compilar e executar o código assembly eu aconselho que usem este [Website](http://www.tutorialspoint.com/compile_assembly_online.php). Assim têm a certeza que tudo irá funcionar corretamente, pois o código assembly pode variar de plataforma para plataforma e também existem pequenas alterações entre versões do Nasm.
+
+
 
 
 
