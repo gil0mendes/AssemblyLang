@@ -40,6 +40,34 @@ Alguns destes registos têm usos específicos em algumas operações aritmética
 
 **O DX é conhecido como o registo de dados**. Também é utilizado em operações de input/output. Ele também é usado com o registo AX juntamente com o DX para operações de multiplicação e divisão envolvendo grandes valores.
 
+### Registos Ponteiros
+
+Os registos ponteiros são de registos de 32-bit EIP, ESP e EBP e os seus correspondentes em 16-bit são IP, SP e BP. Existem três categorias de registos apontadores:
+
+* **Instruction Pointer (IP)** - Este registo contem o 16-bit do endereço de offset (deslocamento) da próxima instrução a ser executada. O IP em associação com o registo CS (como CS:IP) dá o endereço completo da instrução no segmento de código.
+
+* **Stack Pointer (SP)** - O registo SP de 16-bit fornece o valor de deslocamento dentro da *stack* do programa. O SP em associação com o registo SS (SS:SP) refere-se a posição atual dos dados ou do endereço no interior da *stack* do programa.
+
+* **Base Pointer (BP)** - O registo de 16-bit BP ajuda principalmente a referenciar as variáveis passados por parâmetro a uma sub-rotina. O Endereço no registo SS combinado com o *offset* em BP obtém-se a localização do parâmetro. O BP também pode ser combinado com o DI e o SI como base para operações de endereçamento especiais.
+
+### Registos de Índice
+
+Os registos de índice de 32-bit são o ESI e o EDI, os seus 16-bit mais à direita são o SI e o DI. O Si e o DI, são usados endereçamento indexado e às vezes também são usados na adição e subtração. Há dois conjuntos de ponteiros de índice:
+
+* **Source Index (SI)** - Ele é usado como índice da fonte de dados a copiar.
+
+* **Destination Index (DI)** - Ele é usado como índice do destino dos dados a copiar.
+* 
+
+## Registos de Controlo
+
+Quando se combina os 32-bit dos registos de ponteiros com 32-bit dos registos de *flags* obtém-se os registos de controlo.
+
+Muitas instruções envolvem comparações e cálculos matemáticos, alteração de estados das *flags* e outras instruções condicionais testam os valores do estado dessas *flags* para direcionar o fluxo de execução para outro local.
+
+As *flags* mais comuns são:
+
+* **Overflow Flag (OF)** - Ela indica se ocorreu um *overflow* de um bit mais significativo dos dados após uma dada operação aritmética.
 
 
 
