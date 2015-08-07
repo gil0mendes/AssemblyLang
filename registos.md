@@ -28,4 +28,20 @@ Quatro registos de dados de 32-bit são usados para operações aritméticas, l�
 * As metades inferiores dos registos de 32-bit podem ser usados como quatro registos de 16-bit: `AX`, `BX`, `CX`, `DX`.
 * As metades mais baixas e mais altas dos registos de 16-bit falamos acima podem ser usados para armazenar dados de 8-bit: `AH`, `AL`, `BH`, `BL`, `CH`, `CL`, `DH` e `DL`.
 
+![Registos](./imgs/registos.jpg)
+
+Alguns destes registos têm usos específicos em algumas operações aritméticas.
+
+**O AX é o acumulador primário**; Ele é usado no input/output na maioria das operações aritméticas. Por exemplo, na operação de multiplicação, um operando é armazenado no registo EAX ou AX ou AL de acordo com o tamanho do operando.
+
+**O BX é conhecido como o registo de base**, uma vez que pode ser utilizado endereçar índices.
+
+**O CX é conhecido como o registo de contagem**, tanto o ECX como o CX, eles armazenam o contador em operações iterativas.
+
+**O DX é conhecido como o registo de dados**. Também é utilizado em operações de input/output. Ele também é usado com o registo AX juntamente com o DX para operações de multiplicação e divisão envolvendo grandes valores.
+
+
+
+
+
 
