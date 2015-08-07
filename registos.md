@@ -57,7 +57,6 @@ Os registos de índice de 32-bit são o ESI e o EDI, os seus 16-bit mais à dire
 * **Source Index (SI)** - Ele é usado como índice da fonte de dados a copiar.
 
 * **Destination Index (DI)** - Ele é usado como índice do destino dos dados a copiar.
-* 
 
 ## Registos de Controlo
 
@@ -69,6 +68,19 @@ As *flags* mais comuns são:
 
 * **Overflow Flag (OF)** - Ela indica se ocorreu um *overflow* de um bit mais significativo dos dados após uma dada operação aritmética.
 
+* **Direction Flag (DF)** - Ela determina em que direção uma *string* é comparada. Se o seu valor for definido para 0, a operação de comparação irá seguir uma direção da esquerda para a direita Quando definido para 1, a comparação irá ser efetuada da direita para a esquerda.
+
+* **Interrupt Flag (IF)** - Esta *flag* define se as interrupções externas, tais como o teclado, serão processadas ou ignoradas. O estado 0 corresponde a ignorar as interrupções externas e ativado quando definida a 1.
+
+* **Trap Flag (TF)** - Ela permite definir o modo de operação do processador para *single-step*. Isto permite que um programa de *DEBUG* ative esta *flag* e assim é possível avançar a execução através de uma instrução de cada vez.
+
+* **Sign Flag (SF)** - Ela mostra o sinal do resultado de uma operação aritmética. Esta *flag* é definido de acordo com o sinal dos dados de uma operação aritmética. O sinal é indicado pela bit mais significativo. Um resultado positivo limpa o valor de SF a 0 e um resultado negativo define -o como 1.
+
+* **Zero Flag (ZF)** - Ela indica o resultado de uma operação aritmética ou de comparação. Um resultado diferente de zero limpa a *flag* a 0, e um resultado a zero define-a para 1.
+
+* **Auxiliary Carry Flag (AF)** - Ela contem o *carry* (transporte) do bit 3 para o bit 4 de uma operação aritmética; usada para operação aritméticas especificas. O AF é definido quando uma operação aritmética de 1 byte provoca um *carry* do bit 3 para o bit 4.
+
+* **Parity Flag (PF)** - Ela indica o número total de bits no resultado obtido a partir de uma operação aritmética. Um número par de 1-bit limpa a *flag* para 0 e um numero ímpar do 1-bit define a *flag* a 1.
 
 
 
