@@ -33,7 +33,7 @@ Hellom world!
 
 ## Segmentos de Memoria
 
-Um modelo de memória segmentada divide a memória do sistema em grupos de segmentos independentes referenciados por ponteiros localizados nos registos do segmento. Cada segmento é usado para conter um tipo especifico de dados. Um segmento é usado para conter o código de instruções, um outro segmento armazena os elementos de dados, e um terceiro mantêm a stack do programa.
+Um modelo de memória segmentada divide a memória do sistema em grupos de segmentos independentes referenciados por ponteiros localizados nos registos do segmento. Cada segmento é usado para conter um tipo especifico de dados. Um segmento é usado para conter o código de instruções, um outro segmento armazena os elementos de dados, e um terceiro mantêm a *stack* do programa.
 
 À luz da discussão acima, podemos especificar vários segmentos de memória como:
 
