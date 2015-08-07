@@ -140,7 +140,7 @@ O processador deve aceder a um ou mais bytes de memória de cada vez. Vamos cons
 
 O processador guarda os dados na ordem reversa dos bytes, como por exemplo, os bytes de menor ordem são guardados em endereços de memória mais baixos e os bytes de maior ordem em endereços de memória mais altos. Então, se o processador precisar de trazer o valor `0725H` do registo para a memória, isto vai transferir o 25 para o endereço mais baixo e o 07 para o endereço seguinte de memória.
 
-[![Screen](https://raw.githubusercontent.com/gil0mendes/AssemblyLang/master/overview/overview1.jpg)](https://raw.githubusercontent.com/gil0mendes/AssemblyLang/master/overview/overview1.jpg)
+[![Screen](./imgs/overview1.jpg)](./imgs/overview1.jpg)
 
 x: endereço de memoria
 
