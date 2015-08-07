@@ -82,6 +82,16 @@ As *flags* mais comuns são:
 
 * **Parity Flag (PF)** - Ela indica o número total de bits no resultado obtido a partir de uma operação aritmética. Um número par de 1-bit limpa a *flag* para 0 e um numero ímpar do 1-bit define a *flag* a 1.
 
+* **Carry Flag (CF)** - Contém o *carry* de 0 ou 1 do bit mais significativo após uma operação aritmética. Ela também armazena o conteúdo do último bit de uma operação de *shift* ou de rotação.
+
+A tabela a seguir indica a posição dos bits das *flags* no registo de *Flags* em 16-bit:
+
+
+| Flag: |  |  |  |  | O | D | I | T | S | Z |  | A |  | P | | | C |
+| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+| Bit n.: | 15 | 14 | 13 | 12 | 11 | 10 | 9 | 8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
+
+
 
 
 
