@@ -7,5 +7,5 @@
 * [Registos](registos.md)
 * [System Calls](system_calls.md)
 * [Modos de Endereçamento](modos_de_enderecamento.md)
-* Variáveis
+* [Variáveis](variaveis.md)
 
