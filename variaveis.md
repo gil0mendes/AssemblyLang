@@ -33,3 +33,13 @@ real_number1    DD      1.234
 real_number2    DQ      123.456
 ```
 
+Tenha em atenção:
+
+* Cada byte é armazenado como um valor ASCII em hexadecimal.
+* Cada valor decimal é automaticamente convertido para o valor equivalente em binário de 16-bit e armazenado como um numero hexadecimal.
+* O processador uso *litte-endian* na ordenação dos bytes.
+* Números negativos são convertidos para o seu complemento a 2.
+* Números de ponto flutuante, curtos e longos, são representados usando 32 ou 64 bits, respetivamente.
+
+
+
