@@ -6,5 +6,5 @@
 * [Segmentos de Memória](segmentos_de_memoria.md)
 * [Registos](registos.md)
 * [System Calls](system_calls.md)
-* Modos de Endereçamento
+* [Modos de Endereçamento](modos_de_enderecamento.md)
 
