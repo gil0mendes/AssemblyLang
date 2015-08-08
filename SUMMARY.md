@@ -8,4 +8,5 @@
 * [System Calls](system_calls.md)
 * [Modos de Endereçamento](modos_de_enderecamento.md)
 * [Variáveis](variaveis.md)
+* Constantes
 
