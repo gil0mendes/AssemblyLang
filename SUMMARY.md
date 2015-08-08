@@ -5,5 +5,5 @@
 * [Syntax Básica](syntax_basica.md)
 * [Segmentos de Memória](segmentos_de_memoria.md)
 * [Registos](registos.md)
-* System Calls
+* [System Calls](system_calls.md)
 
