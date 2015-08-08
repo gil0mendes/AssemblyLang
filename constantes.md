@@ -91,7 +91,7 @@ section .data           ; segmento de dados
 O *output* do código a cima é:
 
 ```text
-Hello Geeks!
-Welcome to the world of,
-Linux assembly programming!
+Olá Geeks!
+Bem-vindos ao mundo da,
+programação em assembly para Linux!
 ```
