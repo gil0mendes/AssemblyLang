@@ -51,7 +51,7 @@ _start:                 ; ponto de entrada do programa
 
     mov eax, 4          ; numero da system call (sys_write)
     mov ebx, 1          ; define o output (stdout)
-    mov ecx, choise     ; messagem a ser escrita
+    mov ecx, choise     ; mensagem a ser escrita
     mov edx, 1          ; tamanho da mensagem
     int 0x80            ; chama o kernel
 
