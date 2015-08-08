@@ -87,7 +87,7 @@ As *flags* mais comuns são:
 A tabela a seguir indica a posição dos bits das *flags* no registo de *Flags* em 16-bit:
 
 
-| Flag: |  |  |  |  | O | D | I | T | S | Z |  | A |  | P | | | C |
+| Flag: |  |  |  |  | O | D | I | T | S | Z |  | A |  | P | | C |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Bit n.: | 15 | 14 | 13 | 12 | 11 | 10 | 9 | 8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
 
