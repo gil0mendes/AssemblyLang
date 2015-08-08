@@ -91,6 +91,24 @@ A tabela a seguir indica a posição dos bits das *flags* no registo de *Flags* 
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Bit n.: | 15 | 14 | 13 | 12 | 11 | 10 | 9 | 8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
 
+### Registos de Segmento
+
+Os segmentos são áreas especificas da memória em um programa para conter dados, código e a *stack*.
+Existem três principais segmentos:
+
+* **Code Segment** - Este segmento contem todas as instruções a serem executadas. Um registo de código de 16-bit ou registo CS armazena o endereço do inicio do segmento de código.
+
+* **Data Segment** - Este contem os dados, constantes e áreas de trabalho. Um registo do segmento de dados ou DS armazena o endereço do inicio do segmento de dados.
+
+* **Stack Segment** - Este contem dados e os endereços de retorno de um procedimento ou sub-rotina. Este é implementado como uma estrutura de dados do tipo *stack*. O o registo do segmento da *stack* ou SS armazena o endereço de inicio do segmento da *stack*.
+
+A parte dos registos DS, CS e SS, existem outros registos extra - `ES` (Extra Segment), `FS`, `GS`, que fornecem segmentos adicionais para armazenar dados.
+
+Na programação assembly, o programa precisa de aceder aos locais de memória. Todos os locais de memória dentro de um segmento são em relação ao endereço de início do segmento. Um segmento começa em um endereço divisível por 16 ou pelo hexadecimal 10. Assim, o digito mais à direita em todos estes endereços de memória é 0, que por norma não é armazenado nos registos do segmento.
+
+Os segmentos do registo armazena os endereços de inicio de um segmento. Para obter a localização exata dos dados ou instrução dentro de um segmento, um valor de *offset* (ou deslocamento) é necessário. Para fazer referência a qualquer posição de memória em um segmento, o processador combina o endereço do segmento no registo com o o valor do *offset* da localização.
+
+
 
 
 
