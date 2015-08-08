@@ -131,5 +131,46 @@ Na tabela a baixo estão expostos os tipos mais comuns:
 | QWROD | 8 |
 | TBYTE | 10 |
 
+## Exemplo
+
+O seguinte programa ilustra alguns conceitos discutidos a cima. Ele armazena um nome 'Vitor Mendes' na secção de dados da memória, depois altera o valor para outro nome 'Ariel Mendes' de forma programática e mostra ambos os nomes.
+
+```asm
+section .text           ; segmento de código
+    global _start
+
+_start:                 ; ponto de entrada do programa
+
+    ; imprime o nome 'Vitor Mendes'
+    mov eax, 4          ; numero da system call (sys_write)
+    mov ebx, 1          ; define o output (stdout)
+    mov ecx, name       ; messagem a ser escrita
+    mov edx, len        ; tamanho da mensagem
+    int 0x80            ; chama o kernel
+
+    mov [name], dword 'Ariel'       ; Altera o nome para Ariel Mendes
+
+    ; imprime o nome 'Ariel Mendes'
+    mov eax, 4          ; numero da system call (sys_write)
+    mov ebx, 1          ; define o output (stdout)
+    mov ecx, name       ; messagem a ser escrita
+    mov edx, len - 1    ; tamanho da mensagem
+    int 0x80            ; chama o kernel
+
+    ; termina o programa
+    mov eax, 1
+    int 0x80
+
+section .data           ; segmento de dados
+    name db 'Vitor Mendes '
+    len equ $-name
+```
+
+O resultado será:
+
+```text
+Vitor Mendes Ariel Mendes
+```
+
  
 
