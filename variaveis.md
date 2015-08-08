@@ -63,3 +63,19 @@ section .data           ; segmento de dados
     choise DB 'y'
 ```
 
+## Alocação de Espaço para Dados não Inicializados
+
+A diretiva *reserve* permite reservar espaço de armazenamento para dados não inicializados. A diretiva *reserve* apenas recebe um operando que indica o numero de unidades de espaço a reservar.
+
+Existem cinco formas básicas de usar a diretiva *reserve*:
+
+| Diretiva | Propósito |
+| -- | -- |
+| RESB | Reserva um Byte |
+| RESW | Reserva uma Word |
+| RESD | Reserva uma Doubleword |
+| RESQ | Reserva uma Quardword |
+| REST | Reserva Dez Bytes |
+
+
+
