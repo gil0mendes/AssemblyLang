@@ -108,6 +108,43 @@ Na programação assembly, o programa precisa de aceder aos locais de memória. 
 
 Os segmentos do registo armazena os endereços de inicio de um segmento. Para obter a localização exata dos dados ou instrução dentro de um segmento, um valor de *offset* (ou deslocamento) é necessário. Para fazer referência a qualquer posição de memória em um segmento, o processador combina o endereço do segmento no registo com o o valor do *offset* da localização.
 
+## Exemplo
+
+Olhando para o seguinte programa é simples de entender a utilização dos registos na programação assembly. Este programa exibe nove estrelas no ecrã juntamente com um mensagem:
+
+```asm 
+section .text
+    global _start       ; informa o linker (ld) qual é o ponto
+                        ; de entrada
+
+_start:                 ; este é o ponto de entrada
+    mov edx, len        ; comprimento da mensagem
+    mov ecx, msg        ; mensagem a escrever
+    mov ebx, 1          ; instrução para o ficheiro (stdout)
+    mov eax, 4          ; numero da system call (sys_write)
+    int 0x80            ; chama o kernel
+
+    mov edx, len        ; comprimento da mensagem
+    mov ecx, s2         ; mensagem a escrever
+    mov ebx, 1          ; instrução para o ficheiro (stdout)
+    mov eax, 4          ; numero da system call (sys_write)
+    int 0x80            ; chama o kernel
+
+    mov eax,1           ; numero da system call (sys_exit)
+    int 0x80            ; chama o kernel
+
+segment .data           ; segmento de dados
+msg db 'Mostra 9 estrelas: ', 0xa       ; esta é a nossa mensagem
+len equ $ - msg                         ; contem o tamanho da mensagem
+s2 times 9 db '*'                       ; cria uma variavel s2 com 9 estrelas
+```
+
+O *output* do código a sima será:
+
+```text
+Mostra 9 estrelas:
+*********
+```
 
 
 
