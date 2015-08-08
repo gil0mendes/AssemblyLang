@@ -49,7 +49,6 @@ section .text           ; segmento de código
 
 _start:                 ; ponto de entrada do programa
 
-    ; imprime o nome 'Vitor Mendes'
     mov eax, 4          ; numero da system call (sys_write)
     mov ebx, 1          ; define o output (stdout)
     mov ecx, choise     ; messagem a ser escrita
