@@ -1,5 +1,5 @@
 ;
-; File:     01_hello_world.asm
+; File:     01_hello_world.S
 ; Author:   Gil Mendes <gil00mendes@gmail.com>
 ;
 ; Version:  1
