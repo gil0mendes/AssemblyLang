@@ -144,7 +144,7 @@ _start:                 ; ponto de entrada do programa
     ; imprime o nome 'Vitor Mendes'
     mov eax, 4          ; numero da system call (sys_write)
     mov ebx, 1          ; define o output (stdout)
-    mov ecx, name       ; messagem a ser escrita
+    mov ecx, name       ; mensagem a ser escrita
     mov edx, len        ; tamanho da mensagem
     int 0x80            ; chama o kernel
 
@@ -153,7 +153,7 @@ _start:                 ; ponto de entrada do programa
     ; imprime o nome 'Ariel Mendes'
     mov eax, 4          ; numero da system call (sys_write)
     mov ebx, 1          ; define o output (stdout)
-    mov ecx, name       ; messagem a ser escrita
+    mov ecx, name       ; mensagem a ser escrita
     mov edx, len - 1    ; tamanho da mensagem
     int 0x80            ; chama o kernel
 
