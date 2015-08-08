@@ -32,7 +32,7 @@ O operando da definição do `equ` pode ser uma expressão:
 ```asm
 LENGTH  equ 20
 WIDTH   equ 10
-AREA    equ LENGTH * WIDTH
+AREA    equ length * width
 ```
 
 A última linha iria definir a `AREA` como 200.
@@ -95,3 +95,21 @@ Olá Geeks!
 Bem-vindos ao mundo da,
 programação em assembly para Linux!
 ```
+
+## A Diretiva %assign
+
+A diretiva `%assign` pode ser usada para definir constantes numéricas tal como a diretiva `equ`. Esta diretiva permite ser redefinida e ela também é *case-sensitive*. 
+
+```asm
+%assign TOTAL 20
+```
+
+## A Diretiva %define
+
+A diretiva `%define` permite definir constantes numéricas ou *strings*. Esta directiva é semelhante ao `#define` da linguagem C. Por exemplo, você pode definir uma constante PTR tipo:
+
+```asm
+%define PTR [EBP+4]
+```
+
+Esta diretiva também permite ser redefinida e também é *case-sensitive*.
