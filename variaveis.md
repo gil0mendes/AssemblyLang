@@ -41,5 +41,26 @@ Tenha em atenção:
 * Números negativos são convertidos para o seu complemento a 2.
 * Números de ponto flutuante, curtos e longos, são representados usando 32 ou 64 bits, respetivamente.
 
+O programa a baixo mostra o uso da diretiva de definição:
 
+```asm
+section .text           ; segmento de código
+    global _start
+
+_start:                 ; ponto de entrada do programa
+
+    ; imprime o nome 'Vitor Mendes'
+    mov eax, 4          ; numero da system call (sys_write)
+    mov ebx, 1          ; define o output (stdout)
+    mov ecx, choise     ; messagem a ser escrita
+    mov edx, 1          ; tamanho da mensagem
+    int 0x80            ; chama o kernel
+
+    ; termina o programa
+    mov eax, 1
+    int 0x80
+
+section .data           ; segmento de dados
+    choise DB 'y'
+```
 
