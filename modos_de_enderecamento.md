@@ -86,8 +86,50 @@ add ebx, 2                  ; ebx = ebx +2
 mov [ebx], 123              ; my_table[1] = 123
 ```
 
+## Instrução MOV
 
+Nos já usamos desde os primeiros exemplos a instrução `mov`, esta instrução é usada para mover dados de um espaço de armazenamento para um outro. A instrução `mov` recebe dois operandos.
 
+### Syntax
+
+A *syntax* da instrução mov é:
+
+```asm
+mov destino, origem
+```
+
+A instrução `mov`pode ser uma das seguintes 5 formas:
+
+```asm
+mov registo, registo
+mov registo, imediato
+mov memoria, imediato
+mov registo, memoria
+mov memoria, registo
+```
+Tenha em atenção que:
+
+* Ambos os operandos do `mov` devém ser do mesmo mesmo tamanho
+* O valor da origem mantêm-se inalterado
+
+A instrução `mov` por vezes causa ambiguidade. Por exemplo, olhe para a seguinte declaração:
+
+```asm
+mov ebx, [my_table]         ; endereço efetivo de my_table em ebx
+mov [ebx], 110              ; my_table[0] = 110
+```
+
+Não é claro se você quer mover um byte equivalente ou uma word do valor 110. Em alguns casos, é aconselhável usar um especificador de tipo.
+
+Na tabela a baixo estão expostos os tipos mais comuns:
+
+| Especificação do Tipo | Bytes endereçados |
+| -- | -- |
+| BYTE | 1 |
+| WORD | 2 |
+| DWORW | 4 |
+| QWROD | 8 |
+| TBYTE | 10 |
 
  
 
