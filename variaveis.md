@@ -77,5 +77,10 @@ Existem cinco formas básicas de usar a diretiva *reserve*:
 | RESQ | Reserva uma Quardword |
 | REST | Reserva Dez Bytes |
 
+## Múltiplas Iniciaçozações
 
+A diretiva `times` permite múltiplas inicializações para o mesmo valor. Por exemplo, um array chamado marks de tamanho 9 pode ser definido e inicializado a zero usando a seguinte declaração:
 
+```asm
+marks   times   dw  0
+```
