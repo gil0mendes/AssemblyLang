@@ -70,6 +70,22 @@ mov cx, word_table[3]       ; obtém o quarto elemento de word_table
 mov cx, word_table + 3      ; obtem o quarto elemento de word_table
 ```
 
+## Endereçamento Indireto de Memória
+
+Este modo de endereçamento utilizada a capacidade do computador endereçar `Segment:Offset`. Geralmente, os registos de base EBX EBP (ou BX, BP) e os registo de índice (DI, SI), codificados entre parênteses retos referenciam a memória.
+
+O endereçamento indireto é geralmente usado para variáveis que contenham diversos elementos, como *arrays*. O endereço do *array* é armazenado no registo EBX.
+
+O *snippet* a baixo mostra como aceder a diferentes elementos de uma variável:
+
+```asm
+my_table times 10 dw 0      ; aloca 10 words (2 bytes) e cada uma é inicializada a 0
+mov ebx, [my_table]         ; copia o valor do endereço de my_table para ebx
+mov [ebx], 110              ; my_table[0] = 110
+add ebx, 2                  ; ebx = ebx +2
+mov [ebx], 123              ; my_table[1] = 123
+```
+
 
 
 
