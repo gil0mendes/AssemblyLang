@@ -240,3 +240,80 @@ O resultado do código a cima é:
 A soma é:
 7
 ```
+
+## As instruções MUL/IMUL
+
+Existem duas instruções para operações de multiplicações com binários. A instrução `MUL` (Multiply) trata de dados sem sinal e a instrução `IMUL` (Integer Multiply) trata de dados com sinal. Ambas as instruções afetam o valores das *flags* *Carry* e *Overflow*.
+
+### Syntax
+
+A *syntax* para as duas instruções é:
+
+```text
+mul/imul multiplicador
+```
+
+O multiplicando em ambos os casos vai estar num acumulador, dependendo do tamanho do multiplicando e do multiplicador e do produto gerado, dependendo do tamanho dos operandos, serão armazenados em dois registos. A seguir é apresentada uma tabela com os três diferentes casos possíveis usando a instrução `mul`:
+
+| Caso | Cenário |
+| -- | -- |
+| 1 | **Quando dois bits são multiplicados: ** Se o multiplicando está no registo `al`, e o multiplicador é um byte na memória ou em outros registo. O produto será armazenado em `ax`. Os 8 bits mais significativos do produto são armazenados em `ah` e os 8 menos significativos em `al`. |
+| 2 | **Quando duas *words* são multiplicadas: ** O multiplicando é armazenado no registo `ax`, e o multiplicador é uma *word* em memória ou um valor em um outro registo. Por exemplo, ao usar a intrução `mul dx`, você deve armazenadar o multiplicaodr em `dx`e o multiplicando em `ax`. O resultado produzido é uma *doubleword*, e que por isso irá precisar de dois registos. Os bytes mais significativos serão armazenados no registo `dx` e os bytes menos significativos no registo `ax`. |
+| 3 | **Quando duas *doublewords* são multiplicadas: ** Quando duas *doublewords* são multiplicadas, o multiplicando deverá estar armazenado em `eax` e o multiplicador deverá estar armazenado em memória ou em outro registo. O produto gerado será armazenado nos registos `edx:eax`.|
+
+### Exemplo
+
+```asm
+mov al, 10
+mov dl, 25
+mul dl
+...
+mov dl, 0ffh    ; dl = -1
+mov al, 0beh    ; al = -66
+imul dl
+```
+
+### Exemplo II
+
+O próximo exemplo multiplica o valor 3 por 2, e  apresenta o resultado:
+
+```asm
+section .text
+    global _start
+    
+_start:
+
+    ; procede ao calculo de 3*2
+    mov al, 3
+    mov bl, 2
+    mul bl
+    
+    ; guarda o resultado da operação em res
+    add al, '0'
+    mov [res], al
+    
+    ; apresenta a mensagem msg
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, msg
+    mov edx, len
+    int 0x80
+    
+    ; apresenta o resultado
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, res
+    mov edx, 1
+    int 0x80
+    
+    ; termina o programa
+    mov eax, 1
+    int 0x80
+    
+section .data
+    msg db "O resultado é:", 0xa, 0xd
+    len equ $ - msg
+
+section .bss
+    res resb 1
+```
