@@ -326,3 +326,17 @@ Quando o código a cima é compilado e executado, ele deve apresentar o seguinte
 O resultado é:
 6
 ```
+
+## As instruções DIV/IDIV
+
+As operações de divisão geram dois elementos, o **quociente** e o **resto**. No caso na multiplicação, o *overflow* não acontece porque são usados dois registos de tamanho duplo para manter o produto. Contudo, no caso da divisão, o *overflow* pode acontecer. O processador gera uma interrupção quando ele ocorre.
+
+A instrução `div` (Divide) é usada para dados sem sinal e a instrução `idiv` (Integer Divide) é usada para dados com sinal.
+
+### Syntax
+
+O formato para o uso destas instruções é o seguinte:
+
+```asm
+div/idiv    dividor
+```
