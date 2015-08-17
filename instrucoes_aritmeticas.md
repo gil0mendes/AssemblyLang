@@ -340,3 +340,16 @@ O formato para o uso destas instruções é o seguinte:
 ```asm
 div/idiv    dividor
 ```
+
+O dividendo é armazenado no acumulador. Ambas as instruções podem trabalhar com operandos de 8-bit, 16-bit e 32-bit. A operação afeta todas as seis *flags*. A próxima secção explica os três casos da divisão com operadores de diferentes tamanhos:
+
+| Numero | Cenários |
+| -- | -- |
+| 1 | **Quando o divisor é 1 byte:** É assumido que o dividendo se encontra no registo `ax` (16-bits). Depois da divisão, o quociente encontra-se no registo `al` e o resto vai para o registo `ah`. |
+| 2 | **Quando o divisor é 1 *word*: ** É assumido que o dividendo tem 32 bits de cumprimento e encontra-se nos registos `dx:ax`. Os 16 bits mais significativos encontram-se `dx` e os menos significativos encontram-se em `ax`. Depois da divisão, os 16-bit do quociente vão para o registo `ax` e os 16-bit do resto vão para `dx`. |
+| 3 | **Quando o divisor é uma *doubleword*: ** Assume-se que o dividendo tem 64 bits de cumprimento e encontra-se em `edx:eax`. Os 32 bits mais significativos encontram-se em `edx` e os 32 bits menos significativos encontram-se em `eax`. Após a divisão, os 32-bit do quociente vão para o registo `eax` e o 32-bit do resto vão para o registo `edx`. |
+
+
+
+
+
