@@ -349,6 +349,60 @@ O dividendo é armazenado no acumulador. Ambas as instruções podem trabalhar c
 | 2 | **Quando o divisor é 1 *word*: ** É assumido que o dividendo tem 32 bits de cumprimento e encontra-se nos registos `dx:ax`. Os 16 bits mais significativos encontram-se `dx` e os menos significativos encontram-se em `ax`. Depois da divisão, os 16-bit do quociente vão para o registo `ax` e os 16-bit do resto vão para `dx`. |
 | 3 | **Quando o divisor é uma *doubleword*: ** Assume-se que o dividendo tem 64 bits de cumprimento e encontra-se em `edx:eax`. Os 32 bits mais significativos encontram-se em `edx` e os 32 bits menos significativos encontram-se em `eax`. Após a divisão, os 32-bit do quociente vão para o registo `eax` e o 32-bit do resto vão para o registo `edx`. |
 
+### Exemplo
+
+O seguinte exemplo divide 8 por 4. O **dividendo 8** é armazenado no **registo de 16-bits ax** e o **divisor 2** é armazenado no **registo de 8-bit bl**.
+
+```asm
+section .text
+    global _start
+
+_start:
+
+    ; procede ao calculo de 8/4
+    mov ax, 8
+    mov bl, 4
+    div bl
+
+    ; guarda o resultado da operação em res
+    add ax, '0'
+    mov [res], ax
+
+    ; apresenta a mensagem msg
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, msg
+    mov edx, len
+    int 0x80
+
+    ; apresenta o resultado
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, res
+    mov edx, 1
+    int 0x80
+
+    ; termina o programa
+    mov eax, 1
+    int 0x80
+
+section .data
+
+    msg db "O resultado é:", 0xa, 0xd
+    len equ $ - msg
+
+section .bss
+
+    res resb 1
+```
+
+O resultado do código a cima será:
+
+```text
+O resultado é:
+2
+```
+
 
 
 
